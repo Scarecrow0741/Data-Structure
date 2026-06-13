@@ -40,6 +40,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        // example from page num 132 of book
         Node v1 = new Node('1');
         Node v2 = new Node('2');
         Node v3 = new Node('3');
