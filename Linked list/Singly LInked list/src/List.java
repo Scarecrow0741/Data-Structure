@@ -153,6 +153,29 @@ public class List {
         }
     }
 
+    public void reverse() {
+    if (head == null || head.next == null) {
+        return;
+    }
+
+    Node prev = null;
+    Node curr = head;
+    Node next_node = null;
+
+   
+    Node old_head = head;
+
+    while (curr != null) {
+        next_node = curr.next; 
+        curr.next = prev;      
+        prev = curr;          
+        curr = next_node;    
+    }
+
+    head = prev; 
+    tail = old_head;
+    }
+
     public void show_list() {
         Node curr = head;
         while (curr != null) {
