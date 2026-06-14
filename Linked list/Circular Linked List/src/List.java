@@ -7,7 +7,6 @@ public class List {
         this.tail = null;
     }
 
-    // --- INSERTION METHODS ---
 
     public void insert_front(int val) {
         Node new_n = new Node(val);
@@ -68,6 +67,33 @@ public class List {
         }
 
         System.out.println("Value " + val + " not found.");
+    }
+
+    public void reverse() {
+        if (head == null || head == tail) {
+            return;
+        }
+
+        Node prev = null;
+        Node curr = head;
+        Node next_node = null;
+
+        Node old_head = head;
+
+
+        do {
+            next_node = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next_node;
+        } while (curr != old_head);
+
+
+        head = prev;
+        tail = old_head;
+
+
+        tail.next = head;         
     }
 
 
