@@ -118,9 +118,9 @@ public class List {
         if( pos == 1 ){
             head = head.next;
             if (head != null) {
-                head.prev = null; // Safe, list has more elements
+                head.prev = null; 
             } else {
-                tail = null;      // FIX: List is now totally empty
+                tail = null;      
             }
         }
 
@@ -171,6 +171,30 @@ public class List {
             }
             i++ ;
             curr = curr.next ;
+        }
+    }
+
+    public void reverse() {
+        if (head == null || head.next == null) {
+            return;
+        }
+
+        Node curr = head;
+        Node temp = null;
+
+        while (curr != null) {
+
+            temp = curr.prev;
+            curr.prev = curr.next;
+            curr.next = temp;
+
+
+            curr = curr.prev;
+        }
+
+        if (temp != null) {
+            tail = head;
+            head = temp.prev;
         }
     }
 
